@@ -6,7 +6,7 @@ import "google/protobuf/wrappers.proto";
 
 package example;
 
-option go_package = ".;pb";
+option go_package = "github.com/ZackButcher/protoc-gen-cobra/example/pb";
 
 service Proto2 {
     rpc Echo (Sound2) returns (Sound2);

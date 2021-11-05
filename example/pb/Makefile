@@ -12,6 +12,8 @@ $(GO_SOURCES) $(GRPC_SOURCES) $(COBRA_SOURCES):
 		--go-grpc_out=. \
 		--cobra_out=. \
 		$(PROTO_SOURCES)
+	mv github.com/ZackButcher/protoc-gen-cobra/example/pb/* .
+	rm -rd github.com
 
 clean:
 	rm -f $(GO_SOURCES) $(GRPC_SOURCES) $(COBRA_SOURCES)

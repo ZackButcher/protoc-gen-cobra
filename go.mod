@@ -5,6 +5,7 @@ go 1.13
 require (
 	cloud.google.com/go v0.93.3 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
+	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/iancoleman/strcase v0.2.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/mapstructure v1.4.1
@@ -19,6 +20,7 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/genproto v0.0.0-20210828152312-66f60bf46e71 // indirect
 	google.golang.org/grpc v1.40.0
+	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0 // indirect
 	google.golang.org/protobuf v1.27.1
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 )

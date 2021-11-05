@@ -6,9 +6,9 @@ import (
 	client "github.com/ZackButcher/protoc-gen-cobra/client"
 	flag "github.com/ZackButcher/protoc-gen-cobra/flag"
 	iocodec "github.com/ZackButcher/protoc-gen-cobra/iocodec"
+	proto "github.com/gogo/protobuf/proto"
 	cobra "github.com/spf13/cobra"
 	grpc "google.golang.org/grpc"
-	proto "google.golang.org/protobuf/proto"
 	io "io"
 )
 
@@ -45,7 +45,7 @@ func _CacheSetCommand(cfg *client.Config) *cobra.Command {
 					return err
 				}
 			}
-			return client.RoundTrip(cmd.Context(), cfg, func(cc grpc.ClientConnInterface, in iocodec.Decoder, out iocodec.Encoder) error {
+			return client.RoundTrip(cmd.Context(), cfg, func(cc *grpc.ClientConn, in iocodec.Decoder, out iocodec.Encoder) error {
 				cli := NewCacheClient(cc)
 				v := &SetRequest{}
 
@@ -88,7 +88,7 @@ func _CacheGetCommand(cfg *client.Config) *cobra.Command {
 					return err
 				}
 			}
-			return client.RoundTrip(cmd.Context(), cfg, func(cc grpc.ClientConnInterface, in iocodec.Decoder, out iocodec.Encoder) error {
+			return client.RoundTrip(cmd.Context(), cfg, func(cc *grpc.ClientConn, in iocodec.Decoder, out iocodec.Encoder) error {
 				cli := NewCacheClient(cc)
 				v := &GetRequest{}
 
@@ -130,7 +130,7 @@ func _CacheMultiSetCommand(cfg *client.Config) *cobra.Command {
 					return err
 				}
 			}
-			return client.RoundTrip(cmd.Context(), cfg, func(cc grpc.ClientConnInterface, in iocodec.Decoder, out iocodec.Encoder) error {
+			return client.RoundTrip(cmd.Context(), cfg, func(cc *grpc.ClientConn, in iocodec.Decoder, out iocodec.Encoder) error {
 				cli := NewCacheClient(cc)
 				v := &SetRequest{}
 
@@ -185,7 +185,7 @@ func _CacheMultiGetCommand(cfg *client.Config) *cobra.Command {
 					return err
 				}
 			}
-			return client.RoundTrip(cmd.Context(), cfg, func(cc grpc.ClientConnInterface, in iocodec.Decoder, out iocodec.Encoder) error {
+			return client.RoundTrip(cmd.Context(), cfg, func(cc *grpc.ClientConn, in iocodec.Decoder, out iocodec.Encoder) error {
 				cli := NewCacheClient(cc)
 				v := &GetRequest{}
 

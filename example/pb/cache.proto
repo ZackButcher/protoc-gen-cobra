@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package example;
 
-option go_package = ".;pb";
+option go_package = "github.com/ZackButcher/protoc-gen-cobra/example/pb";
 
 service Cache {
     rpc Set (SetRequest) returns (SetResponse);

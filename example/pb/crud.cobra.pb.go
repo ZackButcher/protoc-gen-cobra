@@ -6,9 +6,9 @@ import (
 	client "github.com/ZackButcher/protoc-gen-cobra/client"
 	flag "github.com/ZackButcher/protoc-gen-cobra/flag"
 	iocodec "github.com/ZackButcher/protoc-gen-cobra/iocodec"
+	proto "github.com/gogo/protobuf/proto"
 	cobra "github.com/spf13/cobra"
 	grpc "google.golang.org/grpc"
-	proto "google.golang.org/protobuf/proto"
 )
 
 func CRUDClientCommand(options ...client.Option) *cobra.Command {
@@ -44,7 +44,7 @@ func _CRUDCreateCommand(cfg *client.Config) *cobra.Command {
 					return err
 				}
 			}
-			return client.RoundTrip(cmd.Context(), cfg, func(cc grpc.ClientConnInterface, in iocodec.Decoder, out iocodec.Encoder) error {
+			return client.RoundTrip(cmd.Context(), cfg, func(cc *grpc.ClientConn, in iocodec.Decoder, out iocodec.Encoder) error {
 				cli := NewCRUDClient(cc)
 				v := &CreateCRUD{}
 
@@ -87,7 +87,7 @@ func _CRUDGetCommand(cfg *client.Config) *cobra.Command {
 					return err
 				}
 			}
-			return client.RoundTrip(cmd.Context(), cfg, func(cc grpc.ClientConnInterface, in iocodec.Decoder, out iocodec.Encoder) error {
+			return client.RoundTrip(cmd.Context(), cfg, func(cc *grpc.ClientConn, in iocodec.Decoder, out iocodec.Encoder) error {
 				cli := NewCRUDClient(cc)
 				v := &GetCRUD{}
 
@@ -129,7 +129,7 @@ func _CRUDUpdateCommand(cfg *client.Config) *cobra.Command {
 					return err
 				}
 			}
-			return client.RoundTrip(cmd.Context(), cfg, func(cc grpc.ClientConnInterface, in iocodec.Decoder, out iocodec.Encoder) error {
+			return client.RoundTrip(cmd.Context(), cfg, func(cc *grpc.ClientConn, in iocodec.Decoder, out iocodec.Encoder) error {
 				cli := NewCRUDClient(cc)
 				v := &CRUDObject{}
 
@@ -172,7 +172,7 @@ func _CRUDDeleteCommand(cfg *client.Config) *cobra.Command {
 					return err
 				}
 			}
-			return client.RoundTrip(cmd.Context(), cfg, func(cc grpc.ClientConnInterface, in iocodec.Decoder, out iocodec.Encoder) error {
+			return client.RoundTrip(cmd.Context(), cfg, func(cc *grpc.ClientConn, in iocodec.Decoder, out iocodec.Encoder) error {
 				cli := NewCRUDClient(cc)
 				v := &CRUDObject{}
 
