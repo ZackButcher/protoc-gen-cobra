@@ -6,7 +6,7 @@ import (
 	"github.com/spf13/pflag"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/NathanBaulch/protoc-gen-cobra/ptypes"
+	"github.com/ZackButcher/protoc-gen-cobra/ptypes"
 )
 
 func TimestampVar(fs *pflag.FlagSet, p **timestamppb.Timestamp, name, usage string) {

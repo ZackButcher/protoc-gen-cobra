@@ -1,4 +1,4 @@
-module github.com/NathanBaulch/protoc-gen-cobra
+module github.com/ZackButcher/protoc-gen-cobra
 
 go 1.13
 
