@@ -148,7 +148,7 @@ func (c *Config) encoderFormats() []string {
 	return f
 }
 
-func RoundTrip(ctx context.Context, cfg *Config, fn func(grpc.ClientConnInterface, iocodec.Decoder, iocodec.Encoder) error) error {
+func RoundTrip(ctx context.Context, cfg *Config, fn func(*grpc.ClientConn, iocodec.Decoder, iocodec.Encoder) error) error {
 	var err error
 	var in iocodec.Decoder
 	if in, err = cfg.makeDecoder(); err != nil {
